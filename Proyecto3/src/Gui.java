@@ -80,10 +80,10 @@ public class Gui extends JFrame {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            // Titulo al centro
+            // Titulo 
             g.setColor(Color.BLACK);
             g.drawString("Estadisticas Registros", 200, 50);
-            
+
             
             int barWidth = 50; // Ancho de las barras
             int x = 50; // Coordenada X inicial
