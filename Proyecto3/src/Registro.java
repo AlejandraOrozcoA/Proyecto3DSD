@@ -35,6 +35,6 @@ public class Registro {
 
     @Override
     public String toString() {
-        return "Celular=" + celular + ", CURP=" + curp + ", Estudios=" + estudios;
+        return celular + "," + curp + "," + estudios;
     }
 }
