@@ -80,7 +80,7 @@ class Main {
 
     static String getEstudios()
     {
-        String[] estudios = {"Preescolar","Primaria", "Secundaria", "Preparatoria", "Universidad", "Maestría", "Doctorado"};
+        String[] estudios = {"Preescolar","Primaria", "Secundaria", "Preparatoria", "Universidad", "Maestria", "Doctorado"};
         int indice = (int) (estudios.length * Math.random());
         return estudios[indice];
     }
