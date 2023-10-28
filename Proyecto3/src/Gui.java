@@ -79,10 +79,59 @@ public class Gui extends JFrame {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawString("Numero de registros: " + numRegistros, 10, 10);
-            g.drawString("Preescolar: " + numPreescolar, 10, 30);
-            g.drawString("Primaria: " + numPrimaria, 10, 50);
-            g.drawString("Secundaria: " + numSecundaria, 10, 70);
+
+            // Titulo al centro
+            g.setColor(Color.BLACK);
+            g.drawString("Estadisticas Registros", 200, 50);
+            
+            
+            int barWidth = 50; // Ancho de las barras
+            int x = 50; // Coordenada X inicial
+
+            g.setColor(Color.BLUE);
+            g.fillRect(x, 400 - numPreescolar * 10, barWidth, numPreescolar * 10); // Representa Preescolar
+            g.drawString("Preescolar", x, 420);
+            g.drawString(String.valueOf(numPreescolar), x + 10, 400 - numPreescolar * 10 - 10);
+            x += barWidth + 20;
+
+            g.setColor(Color.RED);
+            g.fillRect(x, 400 - numPrimaria * 10, barWidth, numPrimaria * 10); // Representa Primaria
+            g.drawString("Primaria", x, 420);
+            g.drawString(String.valueOf(numPrimaria), x + 10, 400 - numPrimaria * 10 - 10);
+            x += barWidth + 20;
+
+            g.setColor(Color.GREEN);
+            g.fillRect(x, 400 - numSecundaria * 10 , barWidth, numSecundaria * 10); // Representa Secundaria
+            g.drawString("Secundaria", x, 420);
+            g.drawString(String.valueOf(numSecundaria), x + 10, 400 - numSecundaria * 10 - 10);
+            x += barWidth + 20;
+
+            g.setColor(Color.ORANGE);
+            g.fillRect(x, 400 - numPreparatoria * 10, barWidth, numPreparatoria * 10); // Representa Preparatoria
+            g.drawString("Preparatoria", x, 420);
+            g.drawString(String.valueOf(numPreparatoria), x + 10, 400 - numPreparatoria * 10 - 10);
+            x += barWidth + 20;
+
+            g.setColor(Color.darkGray);
+            g.fillRect(x, 400 - numUniversidad * 10, barWidth, numUniversidad * 10); // Representa Universidad
+            g.drawString("Universidad", x, 420);
+            g.drawString(String.valueOf(numUniversidad), x + 10, 400 - numUniversidad * 10 - 10);
+            x += barWidth + 20;
+
+            g.setColor(Color.MAGENTA);
+            g.fillRect(x, 400 - numMaestria * 10, barWidth, numMaestria * 10); // Representa Maestria
+            g.drawString("Maestria", x, 420);
+            g.drawString(String.valueOf(numMaestria), x + 10, 400 - numMaestria * 10 - 10);
+            x += barWidth + 20;
+
+            g.setColor(Color.PINK);
+            g.fillRect(x, 400 - numDoctorado* 10, barWidth, numDoctorado * 10); // Representa Doctorado
+            g.drawString("Doctorado", x, 420);
+            g.drawString(String.valueOf(numDoctorado), x + 10, 400 - numDoctorado * 10 - 10);
+
+            g.setColor(Color.BLACK);
+            g.drawString("Registros: " + String.valueOf(numRegistros), 50, 450);
+            
         }
     }
 }
