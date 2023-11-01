@@ -1,3 +1,7 @@
+// Alejandra Orozco Aguilar
+// Proyecto 3
+// 4CM12
+
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;

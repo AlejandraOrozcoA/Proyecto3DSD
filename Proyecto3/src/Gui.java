@@ -1,3 +1,7 @@
+// Alejandra Orozco Aguilar
+// Proyecto 3
+// 4CM12
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Collections;

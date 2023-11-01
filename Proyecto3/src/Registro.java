@@ -1,3 +1,7 @@
+// Alejandra Orozco Aguilar
+// Proyecto 3
+// 4CM12
+
 public class Registro {
     private int celular;
     private String curp;
