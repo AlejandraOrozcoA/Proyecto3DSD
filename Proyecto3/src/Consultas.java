@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Consultas {
     public static void main(String[] args) {
+        boolean condition = true;
+        do {
         //Menu  
         System.out.println("1. ¿Cuántos mensajes SMS totales se han realizado por cada sexo hasta el momento?");
         System.out.println("2. ¿Cuántos mensajes SMS se han realizado por cada entidad federativa?");
@@ -53,6 +55,7 @@ public class Consultas {
                         numMujeres++;
                     }
                 }
+                System.out.println("Numero de mensajes por sexo:");
                 System.out.println("Hombres: " + numHombres);
                 System.out.println("Mujeres: " + numMujeres);
                 break;
@@ -250,13 +253,13 @@ public class Consultas {
                 }
                 
                 System.out.println("Numero de hombres y mujeres por nivel de estudios:");
-                System.out.println("Preescolar: Hombres"+numHombresPreescolar+" Mujeres"+numMujeresPreescolar);
-                System.out.println("Primaria: Hombres"+numHombresPrimaria+" Mujeres"+numMujeresPrimaria);
-                System.out.println("Secundaria: Hombres"+numHombresSecundaria+" Mujeres"+numMujeresSecundaria);
-                System.out.println("Preparatoria: Hombres"+numHombresPreparatoria+" Mujeres"+numMujeresPreparatoria);
-                System.out.println("Universidad: Hombres"+numHombresUniversidad+" Mujeres"+numMujeresUniversidad);
-                System.out.println("Maestria: Hombres"+numHombresMaestria+" Mujeres"+numMujeresMaestria);
-                System.out.println("Doctorado: Hombres"+numHombresDoctorado+" Mujeres"+numMujeresDoctorado);
+                System.out.println("Preescolar: Hombres: "+numHombresPreescolar+" Mujeres: "+numMujeresPreescolar);
+                System.out.println("Primaria: Hombres: "+numHombresPrimaria+" Mujeres: "+numMujeresPrimaria);
+                System.out.println("Secundaria: Hombres: "+numHombresSecundaria+" Mujeres: "+numMujeresSecundaria);
+                System.out.println("Preparatoria: Hombres: "+numHombresPreparatoria+" Mujeres: "+numMujeresPreparatoria);
+                System.out.println("Universidad: Hombres: "+numHombresUniversidad+" Mujeres: "+numMujeresUniversidad);
+                System.out.println("Maestria: Hombres: "+numHombresMaestria+" Mujeres: "+numMujeresMaestria);
+                System.out.println("Doctorado: Hombres: "+numHombresDoctorado+" Mujeres: "+numMujeresDoctorado);
 
                 break;
             case 4:
@@ -331,7 +334,23 @@ public class Consultas {
                 System.out.println("Opcion no valida");
                 break;
         }
+
+        System.out.println("¿Desea realizar otra consulta? (s/n)");
+        String respuesta = sc.next().toLowerCase();
+        switch (respuesta) {
+            case "n":
+                condition = false;
+                break;
+            case "s":
+                condition = true;
+                break;
+            default:
+                System.out.println("Opcion no valida, se terminara el programa");
+                condition = false;
+                break;
+        }
         
+        } while (condition);
 
     }
 
