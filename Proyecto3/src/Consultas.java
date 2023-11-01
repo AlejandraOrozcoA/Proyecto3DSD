@@ -1,8 +1,10 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -158,6 +160,7 @@ public class Consultas {
                     }
                 }
                     //Imprimir
+                    System.out.println("Numero de mensajes por entidad federativa:");
                     System.out.println("AS: " + numAS);
                     System.out.println("BC: " + numBC);
                     System.out.println("BS: " + numBS);
@@ -246,6 +249,7 @@ public class Consultas {
                     }
                 }
                 
+                System.out.println("Numero de hombres y mujeres por nivel de estudios:");
                 System.out.println("Preescolar: Hombres"+numHombresPreescolar+" Mujeres"+numMujeresPreescolar);
                 System.out.println("Primaria: Hombres"+numHombresPrimaria+" Mujeres"+numMujeresPrimaria);
                 System.out.println("Secundaria: Hombres"+numHombresSecundaria+" Mujeres"+numMujeresSecundaria);
@@ -277,19 +281,19 @@ public class Consultas {
                 //Contar por nivel de estudios
                 for (int i = 0; i < curps.size(); i++) {
                     if (estudios.get(i).equals("Preescolar")) {
-                        sumaEdadesPreescolar += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesPreescolar += calcularEdad(curps.get(i));
                     } else if (estudios.get(i).equals("Primaria")) {
-                        sumaEdadesPrimaria += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesPrimaria += calcularEdad(curps.get(i));
                     } else if (estudios.get(i).equals("Secundaria")) {
-                        sumaEdadesSecundaria += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesSecundaria += calcularEdad(curps.get(i));
                     } else if (estudios.get(i).equals("Preparatoria")) {
-                        sumaEdadesPreparatoria += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesPreparatoria += calcularEdad(curps.get(i));
                     } else if (estudios.get(i).equals("Universidad")) {
-                        sumaEdadesUniversidad += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesUniversidad += calcularEdad(curps.get(i));
                     } else if (estudios.get(i).equals("Maestria")) {
-                        sumaEdadesMaestria += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesMaestria += calcularEdad(curps.get(i));
                     } else if (estudios.get(i).equals("Doctorado")) {
-                        sumaEdadesDoctorado += 2020 - Integer.parseInt(curps.get(i).substring(4, 6));
+                        sumaEdadesDoctorado += calcularEdad(curps.get(i));
                     }
                 }
 
@@ -329,5 +333,33 @@ public class Consultas {
         }
         
 
+    }
+
+    public static int calcularEdad(String curp) {
+        int edad = 0;
+        //Calcula la edad dado un CURP
+        int anio = Integer.parseInt(curp.substring(4, 6));
+        int mes = Integer.parseInt(curp.substring(6, 8));
+        int dia = Integer.parseInt(curp.substring(8, 10));
+
+        SimpleDateFormat formato = new SimpleDateFormat("yy");
+        int anioActual = Integer.parseInt(formato.format(new Date()));
+
+        if (anio > anioActual) {
+            edad = 100 - anio + anioActual;
+        } else {
+            edad = anioActual - anio;
+        }
+
+        //Si el mes de nacimiento es mayor al actual, se resta un año
+        if (mes > Integer.parseInt(new SimpleDateFormat("MM").format(new Date()))) {
+            edad--;
+        } else if (mes == Integer.parseInt(new SimpleDateFormat("MM").format(new Date()))) {
+            //Si el mes es el mismo, se compara el dia
+            if (dia > Integer.parseInt(new SimpleDateFormat("dd").format(new Date()))) {
+                edad--;
+            }
+        }
+        return edad;
     }
 }
